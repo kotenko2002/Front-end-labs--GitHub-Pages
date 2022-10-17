@@ -1,24 +1,16 @@
 // Taks 1
-const fourthElem = document.getElementById('target-by-variant');
-const nextElem = document.querySelector('#target-by-variant + * > *');
+const currentElement = document.getElementById('target-by-variant');
+const nextElement = document.querySelector('#target-by-variant').nextElementSibling;
 
-fourthElem.addEventListener('click', e => {
-  const className = 'change-color';
-  changingElementClasses(e.target, className);
-});
-
-nextElem.addEventListener('click', e => {
-  const className = 'change-color';
-  changingElementClasses(e.target, className);
-});
+currentElement.addEventListener('click', e => changingElementClasses(e.target, 'change-color'));
+nextElement.addEventListener('click', e => changingElementClasses(e.target, 'change-color'));
 
 const changingElementClasses = (element, className) => {
-  const elemClassList = element.classList;
-  if (!elemClassList.contains(className)) {
-    elemClassList.add(className);
-    return;
-  }
-  elemClassList.remove(className);
+  const elementClassList = element.classList;
+
+  elementClassList.contains(className)
+    ? elementClassList.remove(className)
+    : elementClassList.add(className);
 };
 
 // Taks 2
@@ -87,13 +79,6 @@ const removeImage = () => {
 };
 
 document.querySelector('button#add').addEventListener('click', addImage);
-
-document.querySelector('button#zoom-in').addEventListener('click', () => {
-  zoomLastImg(zoomScale);
-});
-
-document.querySelector('button#zoom-out').addEventListener('click', () => {
-  zoomLastImg(1 / zoomScale);
-});
-
+document.querySelector('button#zoom-in').addEventListener('click', () => zoomLastImg(zoomScale));
+document.querySelector('button#zoom-out').addEventListener('click', () => zoomLastImg(1 / zoomScale));
 document.querySelector('button#delete').addEventListener('click', removeImage);
