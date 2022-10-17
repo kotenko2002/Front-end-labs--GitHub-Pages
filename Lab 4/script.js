@@ -1,5 +1,25 @@
-'use strict';
 // Taks 1
+const fourthElem = document.getElementById('target-by-variant');
+const nextElem = document.querySelector('#target-by-variant + * > *');
+
+fourthElem.addEventListener('click', e => {
+  const className = 'change-color';
+  changingElementClasses(e.target, className);
+});
+
+nextElem.addEventListener('click', e => {
+  const className = 'change-color';
+  changingElementClasses(e.target, className);
+});
+
+const changingElementClasses = (element, className) => {
+  const elemClassList = element.classList;
+  if (!elemClassList.contains(className)) {
+    elemClassList.add(className);
+    return;
+  }
+  elemClassList.remove(className);
+};
 
 // Taks 2
 const zoomScale = 1.4;
