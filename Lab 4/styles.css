@@ -1,0 +1,16 @@
+/* Task 2 */
+.added-img {
+    width: 95vw;
+    height: 80vh;
+}
+  
+.deletable-img, .undeletable-img {
+    width: 95vw;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.picture-button {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
